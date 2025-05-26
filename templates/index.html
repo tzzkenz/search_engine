@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lan="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Search Engine Lite</title>
+		<link rel="stylesheet" href="/static/styles.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>SearchEngineLite</h1>
+			<input type="text" id="query" placeholder="Enter your search...">
+			<button onClick="performSearch()">Search</button>
+		<div id="results"></div>
+		</div>
+		<script>
+			async function performSearch() {
+				const query = document.getElementById("query").value;
+				const res = await fetch(`search?q=${encodeURIComponent(query)}`);
+				const data = await res.json();
+				const resultsDiv = document.getElementById("results");
+				resultsDiv.innerHTML = "";
+
+				if (data.length === 0) {
+					resultsDiv.innerHTML = "<p>No results found</p>";
+					return;
+				}
+
+				data.forEach(([doc, score]) => {
+					const el = document.createElement("div");
+					el.className = "result";
+					el.innerHTML = `<strong>${doc}</strong> (score: ${score})`;
+					resultsDiv.appendChild(el);
+				});
+			}
+		</script>
+	</body>
+</html>
+
