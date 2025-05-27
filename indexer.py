@@ -13,3 +13,5 @@ def build_index():
     with open("data/inverted_index.json", "w") as f:
         json.dump(index, f)
 
+if __name__ == "__main__":
+    build_index()

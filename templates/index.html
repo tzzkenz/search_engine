@@ -24,11 +24,13 @@
 					resultsDiv.innerHTML = "<p>No results found</p>";
 					return;
 				}
-
-				data.forEach(([doc, score]) => {
+				Object.entries(data).forEach(([doc, metadata]) => {
 					const el = document.createElement("div");
 					el.className = "result";
-					el.innerHTML = `<strong>${doc}</strong> (score: ${score})`;
+					el.innerHTML = `
+						<strong><a href="${metadata.url}" target="_blank">${metadata.title}</a></strong>
+						<br><small>${metadata.snippet}</small>
+					`;
 					resultsDiv.appendChild(el);
 				});
 			}

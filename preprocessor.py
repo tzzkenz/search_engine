@@ -21,3 +21,5 @@ def clean_text():
     with open("data/tokens.json", "w") as f:
         json.dump(tokens_per_doc, f)
 
+if __name__ == "__main__":
+    clean_text()
