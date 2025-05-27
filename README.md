@@ -97,10 +97,10 @@ pip install beautifulsoup4 requests nltk
 
 ## 📌 What's Next
 
-- [ ] Improved crawling logic
-- [ ] TF-IDF-based inverted index
-- [ ] Snippet + title-based search output
-- [ ] Advanced preprocessing (stemming, stopwords)
+- [x] Improved crawling logic
+- [x] TF-IDF-based inverted index
+- [x] Snippet + title-based search output
+- [x] Advanced preprocessing (stemming, stopwords)
 - [ ] Cosine similarity
 - [ ] Web frontend (Flask/Streamlit)
 - [ ] Synonym support
