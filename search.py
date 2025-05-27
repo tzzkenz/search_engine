@@ -9,9 +9,9 @@ def search(query):
     metadata = {}
 
     for token in query_tokens:
-        docs = index.get(token, [])
-        for doc in docs:
-            scores[doc] = scores.get(doc, 0) + 1
+        docs = index.get(token, {})
+        for doc, tfidf_score in docs.items():
+            scores[doc] = scores.get(doc, 0) + tfidf_score
 
     sorted_docs = sorted(scores.items(), key=lambda x: x[1], reverse=True)
     
@@ -23,5 +23,4 @@ def search(query):
 
     return metadata
 
-print(search("web"))
 
